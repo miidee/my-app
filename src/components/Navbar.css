@@ -49,3 +49,21 @@
     display: flex; /* Show links when menu is open */
   }
 }
+
+.profile-icon {
+  margin-left: auto;
+  padding: 0 15px;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.profile-icon:hover {
+  opacity: 0.8;
+}
+
+/* If you want to hide the icon on mobile and show it only on larger screens */
+@media (max-width: 768px) {
+  .profile-icon {
+    display: none;
+  }
+}

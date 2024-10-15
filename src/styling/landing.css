@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +28,142 @@
   color: #61dafb;
 }
 
+.App-features {
+  padding: 40px;
+  background-color: #ffff;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* General styles */
+
+
+section {
+  padding: 60px 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Grid layouts */
+.features-grid,
+.options-grid,
+.metrics-grid,
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin-top: 40px;
+}
+
+/* Feature styles */
+.feature,
+.option,
+.metric,
+.testimonial {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature:hover,
+.option:hover {
+  transform: translateY(-5px);
+}
+
+.feature h3,
+.option h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+/* Metrics styles */
+.metric h3 {
+  font-size: 2.5rem;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+/* Testimonial styles */
+.testimonial {
+  text-align: left;
+  font-style: italic;
+}
+
+.testimonial h4 {
+  margin-top: 15px;
+  text-align: right;
+  color: #6c757d;
+}
+
+/* CTA styles */
+.cta {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta h2 {
+  color: white;
+}
+
+.cta-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.cta-button:hover {
+  background-color: #218838;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .features-grid,
+  .options-grid,
+  .metrics-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .feature h3,
+  .option h3 {
+    font-size: 1.3rem;
+  }
+  
+  .metric h3 {
+    font-size: 2rem;
+  }
+}
+.bitcoin-chart {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+  margin-bottom: 40px;
+}
+
+.bitcoin-chart h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
