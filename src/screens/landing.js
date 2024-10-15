@@ -1,73 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Line } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
 import '../styling/landing.css'; // Optional: your main styles
 import Navbar from '../components/Navbar.js'; // Adjust the path as needed
 
-// Register ChartJS components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
 function App() {
-  const [bitcoinChartData, setBitcoinChartData] = useState(null);
+  // New state for Bitcoin data
+  const [bitcoinData, setBitcoinData] = useState(null);
 
   useEffect(() => {
-    const fetchBitcoinChartData = async () => {
+    // New effect for fetching Bitcoin data
+    const fetchBitcoinData = async () => {
       try {
-        const response = await axios.get(
-          'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=30&interval=daily'
-        );
-        setBitcoinChartData(response.data.prices);
+        const response = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur,gbp&include_24hr_change=true');
+        setBitcoinData(response.data.bitcoin);
       } catch (error) {
-        console.error('Error fetching Bitcoin chart data:', error);
+        console.error('Error fetching Bitcoin data:', error);
       }
     };
 
-    fetchBitcoinChartData();
+    fetchBitcoinData();
+    const interval = setInterval(fetchBitcoinData, 60000); // Update every minute
+
+    return () => clearInterval(interval);
   }, []);
-
-  const chartData = {
-    labels: bitcoinChartData ? bitcoinChartData.map(data => new Date(data[0]).toLocaleDateString()) : [],
-    datasets: [
-      {
-        label: 'Bitcoin Price (USD)',
-        data: bitcoinChartData ? bitcoinChartData.map(data => data[1]) : [],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1
-      }
-    ]
-  };
-
-  const chartOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Bitcoin Price Last 30 Days (USD)',
-      },
-    },
-  };
 
   return (
     <div className="App">
@@ -110,12 +65,34 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="bitcoin-chart">
-        <h2>Bitcoin Price Chart</h2>
-        {bitcoinChartData ? (
-          <Line data={chartData} options={chartOptions} />
+      <section className="bitcoin-price">
+        <h2>Real-Time Bitcoin Prices</h2>
+        {bitcoinData ? (
+          <div className="price-grid">
+            <div className="price-card">
+              <h3>USD</h3>
+              <p>${bitcoinData.usd.toLocaleString()}</p>
+              <span className={bitcoinData.usd_24h_change > 0 ? 'positive' : 'negative'}>
+                {bitcoinData.usd_24h_change.toFixed(2)}%
+              </span>
+            </div>
+            <div className="price-card">
+              <h3>EUR</h3>
+              <p>€{bitcoinData.eur.toLocaleString()}</p>
+              <span className={bitcoinData.eur_24h_change > 0 ? 'positive' : 'negative'}>
+                {bitcoinData.eur_24h_change.toFixed(2)}%
+              </span>
+            </div>
+            <div className="price-card">
+              <h3>GBP</h3>
+              <p>£{bitcoinData.gbp.toLocaleString()}</p>
+              <span className={bitcoinData.gbp_24h_change > 0 ? 'positive' : 'negative'}>
+                {bitcoinData.gbp_24h_change.toFixed(2)}%
+              </span>
+            </div>
+          </div>
         ) : (
-          <p>Loading Bitcoin chart data...</p>
+          <p>Loading...</p>
         )}
       </section>
     </div>
