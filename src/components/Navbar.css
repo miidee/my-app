@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* Change this to your desired navbar color */
+  padding: 10px 20px;
+  color: white;
+  position: relative; /* Optional: helps with positioning */
+  z-index: 1000; /* Ensures navbar is above other elements */
+}
+
+.menu-toggle {
+  display: none; /* Hide for larger screens */
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex; /* Use flexbox for horizontal alignment */
+  gap: 15px; /* Space between links */
+  margin: 0; /* Remove default margin */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Show hamburger menu on small screens */
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links by default */
+    flex-direction: column; /* Stack links vertically */
+    width: 100%;
+    padding: 0;
+    background-color: #333; /* Match the navbar background color */
+  }
+
+  .nav-links.open {
+    display: flex; /* Show links when menu is open */
+  }
+}
