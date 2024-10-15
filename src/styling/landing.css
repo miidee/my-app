@@ -182,3 +182,98 @@ h2 {
     transform: rotate(360deg);
   }
 }
+
+.investment-plans {
+  background-color: #f8f9fa;
+  padding: 40px 40px;
+  margin-bottom: 40px;
+}
+
+.investment-plans h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.plans-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+  padding-bottom: 40px;
+   /* Space for potential scrollbar */
+}
+
+.plan {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 0 300px; /* Fixed width for each card */
+  display: flex;
+  width: 50px;
+  flex-direction: column;
+}
+
+.plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.plan h3 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.plan .price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.plan ul {
+  list-style-type: none;
+  padding: 0;
+  flex-grow: 1; /* Allows the list to expand and push the button to the bottom */
+}
+
+.plan li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 25px;
+}
+
+.plan li::before {
+  content: '•';
+  color: #007bff;
+  font-size: 1.2em;
+  position: absolute;
+  left: 0;
+}
+
+/* Add a button to each plan */
+.plan-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.plan-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 1000px) {
+  .plans-grid {
+    flex-wrap: wrap;
+  }
+}

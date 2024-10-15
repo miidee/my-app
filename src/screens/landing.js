@@ -1,28 +1,73 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import '../styling/landing.css'; // Optional: your main styles
 import Navbar from '../components/Navbar.js'; // Adjust the path as needed
 
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 function App() {
-  // New state for Bitcoin data
-  const [bitcoinData, setBitcoinData] = useState(null);
+  const [bitcoinChartData, setBitcoinChartData] = useState(null);
 
   useEffect(() => {
-    // New effect for fetching Bitcoin data
-    const fetchBitcoinData = async () => {
+    const fetchBitcoinChartData = async () => {
       try {
-        const response = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur,gbp&include_24hr_change=true');
-        setBitcoinData(response.data.bitcoin);
+        const response = await axios.get(
+          'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=30&interval=daily'
+        );
+        setBitcoinChartData(response.data.prices);
       } catch (error) {
-        console.error('Error fetching Bitcoin data:', error);
+        console.error('Error fetching Bitcoin chart data:', error);
       }
     };
 
-    fetchBitcoinData();
-    const interval = setInterval(fetchBitcoinData, 60000); // Update every minute
-
-    return () => clearInterval(interval);
+    fetchBitcoinChartData();
   }, []);
+
+  const chartData = {
+    labels: bitcoinChartData ? bitcoinChartData.map(data => new Date(data[0]).toLocaleDateString()) : [],
+    datasets: [
+      {
+        label: 'Bitcoin Price (USD)',
+        data: bitcoinChartData ? bitcoinChartData.map(data => data[1]) : [],
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+      }
+    ]
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Bitcoin Price Last 30 Days (USD)',
+      },
+    },
+  };
 
   return (
     <div className="App">
@@ -65,35 +110,59 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="bitcoin-price">
-        <h2>Real-Time Bitcoin Prices</h2>
-        {bitcoinData ? (
-          <div className="price-grid">
-            <div className="price-card">
-              <h3>USD</h3>
-              <p>${bitcoinData.usd.toLocaleString()}</p>
-              <span className={bitcoinData.usd_24h_change > 0 ? 'positive' : 'negative'}>
-                {bitcoinData.usd_24h_change.toFixed(2)}%
-              </span>
-            </div>
-            <div className="price-card">
-              <h3>EUR</h3>
-              <p>€{bitcoinData.eur.toLocaleString()}</p>
-              <span className={bitcoinData.eur_24h_change > 0 ? 'positive' : 'negative'}>
-                {bitcoinData.eur_24h_change.toFixed(2)}%
-              </span>
-            </div>
-            <div className="price-card">
-              <h3>GBP</h3>
-              <p>£{bitcoinData.gbp.toLocaleString()}</p>
-              <span className={bitcoinData.gbp_24h_change > 0 ? 'positive' : 'negative'}>
-                {bitcoinData.gbp_24h_change.toFixed(2)}%
-              </span>
-            </div>
-          </div>
+      <section className="bitcoin-chart">
+        <h2>Bitcoin Price Chart</h2>
+        {bitcoinChartData ? (
+          <Line data={chartData} options={chartOptions} />
         ) : (
-          <p>Loading...</p>
+          <p>Loading Bitcoin chart data...</p>
         )}
+      </section>
+      <section className="investment-plans">
+        <h2>Investment Plans</h2>
+        <div className="plans-grid">
+          <div className="plan">
+            <h3>Starter Plan</h3>
+            <p className="price">$500</p>
+            <ul>
+              <li>Access to basic mining operations</li>
+              <li>Weekly payouts</li>
+              <li>24/7 customer support</li>
+            </ul>
+          </div>
+          <div className="plan">
+            <h3>Growth Plan</h3>
+            <p className="price">$2,000</p>
+            <ul>
+              <li>Enhanced mining power</li>
+              <li>Daily payouts</li>
+              <li>Priority customer support</li>
+              <li>Monthly performance reports</li>
+            </ul>
+          </div>
+          <div className="plan">
+            <h3>Premium Plan</h3>
+            <p className="price">$5,000</p>
+            <ul>
+              <li>Maximum mining efficiency</li>
+              <li>Instant payouts</li>
+              <li>VIP customer support</li>
+              <li>Detailed analytics dashboard</li>
+              <li>Exclusive market insights</li>
+            </ul>
+          </div>
+          <div className="plan">
+            <h3>Premium Plan</h3>
+            <p className="price">$5,000</p>
+            <ul>
+              <li>Maximum mining efficiency</li>
+              <li>Instant payouts</li>
+              <li>VIP customer support</li>
+              <li>Detailed analytics dashboard</li>
+              <li>Exclusive market insights</li>
+            </ul>
+          </div>
+        </div>
       </section>
     </div>
   );
