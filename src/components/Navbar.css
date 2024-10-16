@@ -3,7 +3,7 @@
   height: 70px;
   justify-content: space-between;
   align-items: center;
-  background-color: #193653; /* Change this to your desired navbar color */
+  background-color: #ffff; /* Change this to your desired navbar color */
   padding: 10px 20px;
   color: white;
   position: relative; /* Optional: helps with positioning */
@@ -24,7 +24,7 @@
 }
 
 .nav-links a {
-  color: white;
+  color: rgb(74, 74, 141);
   text-decoration: none;
 }
 

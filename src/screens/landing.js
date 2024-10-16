@@ -105,18 +105,19 @@ function App() {
       <header className="App-header">
         <h1>BlockMining</h1>
         <p>Accelerate Your BlockChain Development with our Expertise.</p>
+        <button className="cta-button">Get Started</button>
       </header>
       <section className="App-features">
-        <h2>Our Story</h2>
+        {/* <h2>Our Story</h2> */}
         <p>
-          BLOCKMINING was founded in 2017 and has quickly grown into a leading Bitcoin mining investment platform. Since our establishment, we've been at the forefront of the cryptocurrency revolution, offering investors unique opportunities to participate in the exciting world of Bitcoin mining.
-          Our journey began with a vision to democratize Bitcoin mining, making it accessible to investors of all sizes. We recognized early on that while many were interested in the potential of Bitcoin, the technical complexities and high costs of mining equipment often posed significant barriers to entry. That's where BLOCKMINING comes in.
-          We've built a state-of-the-art mining infrastructure, leveraging the latest in ASIC technology and green energy solutions. Our mining farms are strategically located in regions with low electricity costs and cool climates, optimizing our operational efficiency and maximizing returns for our investors.
-          At BLOCKMINING, we offer a range of investment packages tailored to different risk appetites and investment sizes. Whether you're a seasoned crypto enthusiast or a curious newcomer, we have options that suit your needs. Our team of experts constantly monitors market conditions and adjusts our mining strategies to ensure the best possible returns for our investors.
-          What sets us apart is our commitment to transparency and education. We believe in empowering our investors with knowledge. Through our platform, you can track your mining progress in real-time, access detailed reports, and learn about the intricacies of Bitcoin mining and blockchain technology.
-          We're not just about profits; we're about building a sustainable future for cryptocurrency. That's why we're committed to reducing our carbon footprint, with ongoing initiatives to increase our use of renewable energy sources.
-          As the Bitcoin landscape evolves, so do we. We're constantly exploring new technologies and methodologies to stay ahead of the curve. With BLOCKMINING, you're not just investing in Bitcoin mining; you're partnering with a forward-thinking company that's shaping the future of digital finance.
-          Join us in the Bitcoin mining revolution. Whether you're looking to diversify your portfolio, hedge against inflation, or simply be part of the cryptocurrency movement, BLOCKMINING offers you a secure, profitable, and exciting way to mine Bitcoin. Let's mine the future together!
+          {/* BLOCKMINING was founded in 2017 and has quickly grown into a leading Bitcoin mining investment platform. Since our establishment, we've been at the forefront of the cryptocurrency revolution, offering investors unique opportunities to participate in the exciting world of Bitcoin mining. */}
+          {/* Our journey began with a vision to democratize Bitcoin mining, making it accessible to investors of all sizes. We recognized early on that while many were interested in the potential of Bitcoin, the technical complexities and high costs of mining equipment often posed significant barriers to entry. That's where BLOCKMINING comes in. */}
+          {/* We've built a state-of-the-art mining infrastructure, leveraging the latest in ASIC technology and green energy solutions. Our mining farms are strategically located in regions with low electricity costs and cool climates, optimizing our operational efficiency and maximizing returns for our investors. */}
+          {/* At BLOCKMINING, we offer a range of investment packages tailored to different risk appetites and investment sizes. Whether you're a seasoned crypto enthusiast or a curious newcomer, we have options that suit your needs. Our team of experts constantly monitors market conditions and adjusts our mining strategies to ensure the best possible returns for our investors. */}
+          {/* What sets us apart is our commitment to transparency and education. We believe in empowering our investors with knowledge. Through our platform, you can track your mining progress in real-time, access detailed reports, and learn about the intricacies of Bitcoin mining and blockchain technology. */}
+          {/* We're not just about profits; we're about building a sustainable future for cryptocurrency. That's why we're committed to reducing our carbon footprint, with ongoing initiatives to increase our use of renewable energy sources. */}
+          {/* As the Bitcoin landscape evolves, so do we. We're constantly exploring new technologies and methodologies to stay ahead of the curve. With BLOCKMINING, you're not just investing in Bitcoin mining; you're partnering with a forward-thinking company that's shaping the future of digital finance. */}
+          {/* Join us in the Bitcoin mining revolution. Whether you're looking to diversify your portfolio, hedge against inflation, or simply be part of the cryptocurrency movement, BLOCKMINING offers you a secure, profitable, and exciting way to mine Bitcoin. Let's mine the future together! */}
         </p>
       </section>
       <section className="key-features">
@@ -149,7 +150,8 @@ function App() {
         )}
       </section>
       <section className="investment-plans">
-        <h2 style={{ color: 'black', margin: '0', fontSize: '1.9rem', fontWeight: 'bold' }}>Investment Plans</h2>
+        <h2 style={{ color: 'black', margin: '0', fontSize: '1.8rem', fontWeight: 'bold' }}>Unlock your full financial potential
+        </h2>
         <div className="plans-grid">
           <div className="plan">
             <h3>Basic Plan</h3>
