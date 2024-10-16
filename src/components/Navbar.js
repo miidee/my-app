@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h2>BlockMining</h2>
+      <h2 style={{ color: 'white', margin: '0', fontSize: '1.5rem', fontWeight: 'bold' }}>BlockMining</h2>
       <div className="menu-toggle" onClick={toggleMenu}>
         ☰
       </div>

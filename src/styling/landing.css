@@ -14,7 +14,10 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 40vh;
   display: flex;
   flex-direction: column;
@@ -29,7 +32,9 @@
 }
 
 .App-features {
-  padding: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
   background-color: #ffff;
   text-align: center;
   line-height: 1.5;
@@ -37,9 +42,8 @@
 
 /* General styles */
 
-
 section {
-  padding: 60px 0;
+  padding: 20px 0 40px 0;
 }
 
 h2 {
@@ -154,11 +158,13 @@ h2 {
     font-size: 2rem;
   }
 }
+
 .bitcoin-chart {
   background-color: #f8f9fa;
-  padding: 40px 20px;
+  padding: 20px 20px 40px;
   margin-bottom: 40px;
   width: 80%;
+  height: 50%;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -173,7 +179,6 @@ h2 {
   max-height: 400px;
 }
 
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -185,13 +190,14 @@ h2 {
 
 .investment-plans {
   background-color: #f8f9fa;
-  padding: 40px 40px;
+  padding: 20px 40px 40px;
   margin-bottom: 40px;
 }
 
 .investment-plans h2 {
   text-align: center;
   margin-bottom: 40px;
+  padding-bottom: 20px;
   color: #333;
 }
 
@@ -276,4 +282,42 @@ h2 {
   .plans-grid {
     flex-wrap: wrap;
   }
+}
+
+.user-reviews {
+  padding: 20px 0 0;
+  background-color: #f8f9fa;
+}
+
+.user-reviews h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.reviews-slider {
+  display: flex;
+  overflow-x: hidden;
+  white-space: nowrap;
+  padding: 20px 0;
+}
+
+.review {
+  flex: 0 0 auto;
+  width: 300px;
+  padding: 20px;
+  margin-right: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  white-space: normal;
+}
+
+.review p {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.review h4 {
+  text-align: right;
+  color: #666;
 }

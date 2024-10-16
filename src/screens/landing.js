@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import {
@@ -27,6 +27,7 @@ ChartJS.register(
 
 function App() {
   const [bitcoinChartData, setBitcoinChartData] = useState(null);
+  const reviewsRef = useRef(null);
 
   useEffect(() => {
     const fetchBitcoinChartData = async () => {
@@ -69,6 +70,35 @@ function App() {
     },
   };
 
+  useEffect(() => {
+    const slider = reviewsRef.current;
+    let scrollInterval;
+
+    const startScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+          slider.scrollLeft = 0;
+        } else {
+          slider.scrollLeft += 1;
+        }
+      }, 30);
+    };
+
+    const stopScroll = () => {
+      clearInterval(scrollInterval);
+    };
+
+    startScroll();
+    slider.addEventListener('mouseenter', stopScroll);
+    slider.addEventListener('mouseleave', startScroll);
+
+    return () => {
+      stopScroll();
+      slider.removeEventListener('mouseenter', stopScroll);
+      slider.removeEventListener('mouseleave', startScroll);
+    };
+  }, []);
+
   return (
     <div className="App">
       <Navbar />
@@ -78,19 +108,19 @@ function App() {
       </header>
       <section className="App-features">
         <h2>Our Story</h2>
-        <p> 
-        BLOCKMINING was founded in 2017 and has quickly grown into a leading Bitcoin mining investment platform. Since our establishment, we've been at the forefront of the cryptocurrency revolution, offering investors unique opportunities to participate in the exciting world of Bitcoin mining.
-        Our journey began with a vision to democratize Bitcoin mining, making it accessible to investors of all sizes. We recognized early on that while many were interested in the potential of Bitcoin, the technical complexities and high costs of mining equipment often posed significant barriers to entry. That's where BLOCKMINING comes in.
-        We've built a state-of-the-art mining infrastructure, leveraging the latest in ASIC technology and green energy solutions. Our mining farms are strategically located in regions with low electricity costs and cool climates, optimizing our operational efficiency and maximizing returns for our investors.
-        At BLOCKMINING, we offer a range of investment packages tailored to different risk appetites and investment sizes. Whether you're a seasoned crypto enthusiast or a curious newcomer, we have options that suit your needs. Our team of experts constantly monitors market conditions and adjusts our mining strategies to ensure the best possible returns for our investors.
-        What sets us apart is our commitment to transparency and education. We believe in empowering our investors with knowledge. Through our platform, you can track your mining progress in real-time, access detailed reports, and learn about the intricacies of Bitcoin mining and blockchain technology.
-        We're not just about profits; we're about building a sustainable future for cryptocurrency. That's why we're committed to reducing our carbon footprint, with ongoing initiatives to increase our use of renewable energy sources.
-        As the Bitcoin landscape evolves, so do we. We're constantly exploring new technologies and methodologies to stay ahead of the curve. With BLOCKMINING, you're not just investing in Bitcoin mining; you're partnering with a forward-thinking company that's shaping the future of digital finance.
-        Join us in the Bitcoin mining revolution. Whether you're looking to diversify your portfolio, hedge against inflation, or simply be part of the cryptocurrency movement, BLOCKMINING offers you a secure, profitable, and exciting way to mine Bitcoin. Let's mine the future together!
+        <p>
+          BLOCKMINING was founded in 2017 and has quickly grown into a leading Bitcoin mining investment platform. Since our establishment, we've been at the forefront of the cryptocurrency revolution, offering investors unique opportunities to participate in the exciting world of Bitcoin mining.
+          Our journey began with a vision to democratize Bitcoin mining, making it accessible to investors of all sizes. We recognized early on that while many were interested in the potential of Bitcoin, the technical complexities and high costs of mining equipment often posed significant barriers to entry. That's where BLOCKMINING comes in.
+          We've built a state-of-the-art mining infrastructure, leveraging the latest in ASIC technology and green energy solutions. Our mining farms are strategically located in regions with low electricity costs and cool climates, optimizing our operational efficiency and maximizing returns for our investors.
+          At BLOCKMINING, we offer a range of investment packages tailored to different risk appetites and investment sizes. Whether you're a seasoned crypto enthusiast or a curious newcomer, we have options that suit your needs. Our team of experts constantly monitors market conditions and adjusts our mining strategies to ensure the best possible returns for our investors.
+          What sets us apart is our commitment to transparency and education. We believe in empowering our investors with knowledge. Through our platform, you can track your mining progress in real-time, access detailed reports, and learn about the intricacies of Bitcoin mining and blockchain technology.
+          We're not just about profits; we're about building a sustainable future for cryptocurrency. That's why we're committed to reducing our carbon footprint, with ongoing initiatives to increase our use of renewable energy sources.
+          As the Bitcoin landscape evolves, so do we. We're constantly exploring new technologies and methodologies to stay ahead of the curve. With BLOCKMINING, you're not just investing in Bitcoin mining; you're partnering with a forward-thinking company that's shaping the future of digital finance.
+          Join us in the Bitcoin mining revolution. Whether you're looking to diversify your portfolio, hedge against inflation, or simply be part of the cryptocurrency movement, BLOCKMINING offers you a secure, profitable, and exciting way to mine Bitcoin. Let's mine the future together!
         </p>
       </section>
       <section className="key-features">
-        <h2>Why Choose Us</h2>
+        <h2 style={{ color: 'black', margin: '0', fontSize: '1.9rem', fontWeight: 'bold' }}>Why Choose Us</h2>
         <div className="features-grid">
           <div className="feature">
             <h3>Secure Investments</h3>
@@ -111,7 +141,7 @@ function App() {
         </div>
       </section>
       <section className="bitcoin-chart">
-        <h2>Bitcoin Price Chart</h2>
+        <h2 style={{ color: 'black', margin: '0', fontSize: '1.5rem', fontWeight: 'bold' }}>Bitcoin Price Chart</h2>
         {bitcoinChartData ? (
           <Line data={chartData} options={chartOptions} />
         ) : (
@@ -119,48 +149,80 @@ function App() {
         )}
       </section>
       <section className="investment-plans">
-        <h2>Investment Plans</h2>
+        <h2 style={{ color: 'black', margin: '0', fontSize: '1.9rem', fontWeight: 'bold' }}>Investment Plans</h2>
         <div className="plans-grid">
           <div className="plan">
-            <h3>Starter Plan</h3>
+            <h3>Basic Plan</h3>
             <p className="price">$500</p>
             <ul>
+              <li>2- 3% daily profits</li>
               <li>Access to basic mining operations</li>
               <li>Weekly payouts</li>
               <li>24/7 customer support</li>
             </ul>
+            <button className="plan-button">Choose Plan</button>
           </div>
           <div className="plan">
             <h3>Growth Plan</h3>
             <p className="price">$2,000</p>
             <ul>
+              <li>2-3% daily Profits</li>
               <li>Enhanced mining power</li>
               <li>Daily payouts</li>
               <li>Priority customer support</li>
               <li>Monthly performance reports</li>
             </ul>
+            <button className="plan-button">Choose Plan</button>
           </div>
           <div className="plan">
             <h3>Premium Plan</h3>
-            <p className="price">$5,000</p>
+            <p className="price">$10,000</p>
             <ul>
+              <li>4-5% daily profits</li>
+              <li>Maximum mining efficiency</li>
+              <li>Instant payouts</li>
+              <li>VIP customer support</li>
+              <li>Exclusive market insights</li>
+            </ul>
+            <button className="plan-button">Choose Plan</button>
+          </div>
+          <div className="plan">
+            <h3>Platinum Plan</h3>
+            <p className="price">$20,000</p>
+            <ul>
+              <li>6-7% daily profits</li>
               <li>Maximum mining efficiency</li>
               <li>Instant payouts</li>
               <li>VIP customer support</li>
               <li>Detailed analytics dashboard</li>
               <li>Exclusive market insights</li>
             </ul>
+            <button className="plan-button">Choose Plan</button>
           </div>
-          <div className="plan">
-            <h3>Premium Plan</h3>
-            <p className="price">$5,000</p>
-            <ul>
-              <li>Maximum mining efficiency</li>
-              <li>Instant payouts</li>
-              <li>VIP customer support</li>
-              <li>Detailed analytics dashboard</li>
-              <li>Exclusive market insights</li>
-            </ul>
+        </div>
+      </section>
+      <section className="user-reviews">
+        <h2 style={{ color: 'black', margin: '0', fontSize: '1.5rem', fontWeight: 'bold' }}>What Our Users Say</h2>
+        <div className="reviews-slider" ref={reviewsRef}>
+          <div className="review">
+            <p>"BlockMining has transformed my investment strategy. The returns are incredible!"</p>
+            <h4>- John D.</h4>
+          </div>
+          <div className="review">
+            <p>"I've tried other platforms, but none compare to the security and profitability of BlockMining."</p>
+            <h4>- Sarah M.</h4>
+          </div>
+          <div className="review">
+            <p>"The customer support is top-notch. They're always there when I need them."</p>
+            <h4>- Michael R.</h4>
+          </div>
+          <div className="review">
+            <p>"I started with the Basic Plan and quickly upgraded to Premium. The results speak for themselves!"</p>
+            <h4>- Emily L.</h4>
+          </div>
+          <div className="review">
+            <p>"BlockMining has a real-time tracking feature gives me peace of mind. I always know how my investment is performing."</p>
+            <h4>- David W.</h4>
           </div>
         </div>
       </section>
