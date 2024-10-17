@@ -103,9 +103,11 @@ function App() {
     <div className="App">
       <Navbar />
       <header className="App-header">
-        <h1>BlockMining</h1>
-        <p>Accelerate Your BlockChain Development with our Expertise.</p>
-        <button className="cta-button">Get Started</button>
+        <div className="header-content">
+          <h1>BlockMining</h1>
+          <p>Accelerate Your BlockChain Development with our Expertise.</p>
+          <button className="cta-button">Get Started</button>
+        </div>
       </header>
       <section className="App-features">
         {/* <h2>Our Story</h2> */}
@@ -121,23 +123,24 @@ function App() {
         </p>
       </section>
       <section className="key-features">
-        <h2 style={{ color: 'black', margin: '0', fontSize: '1.9rem', fontWeight: 'bold' }}>Why Choose Us</h2>
+        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.3rem', fontWeight: 'bold', fontStyle: 'italic', paddingBottom: '20px' }}>Why Choose Us</h2>
+        <p className="why-choose-us-description" style={{ color: 'black', margin: '0', fontSize: '0.9rem', fontWeight: 'normal', }}>BLOCKMINING was founded in 2017 and has quickly grown into a leading CrytptoCurrency mining investment platform. Since our establishment, we've been at the forefront of the cryptocurrency revolution, offering investors unique opportunities to participate in the exciting world of cryptocurrency mining. Let's break down the components of our famous tagline to provide a well-detailed explanation of who we are at BlockMining...</p>
         <div className="features-grid">
           <div className="feature">
-            <h3>Secure Investments</h3>
-            <p>State-of-the-art security measures to protect your assets</p>
+            <h3 style={{ color: 'black', margin: '10px', fontSize: '1.1rem', fontWeight: 'bold', }}>Secure Investments</h3>
+            <p style={{ color: 'black', margin: '0', fontSize: '0.9rem', fontWeight: 'normal', }}>State-of-the-art security measures to protect your assets</p>
           </div>
           <div className="feature">
-            <h3>Expert Management</h3>
-            <p>Our team of financial experts optimizes your investment strategy</p>
+            <h3  style={{ color: 'black', margin: '10px', fontSize: '1.1rem', fontWeight: 'bold', }}>Expert Management</h3>
+            <p style={{ color: 'black', margin: '0', fontSize: '0.9rem', fontWeight: 'normal', }}>Our team of financial experts optimizes your investment strategy</p>
           </div>
           <div className="feature">
-            <h3>Diverse Portfolio</h3>
-            <p>Access to a wide range of investment options</p>
+            <h3  style={{ color: 'black', margin: '10px', fontSize: '1.1rem', fontWeight: 'bold', }}>Diverse Portfolio</h3>
+            <p style={{ color: 'black', margin: '0', fontSize: '0.9rem', fontWeight: 'normal', }}>Access to a wide range of investment options</p>
           </div>
           <div className="feature">
-            <h3>Real-time Tracking</h3>
-            <p>Monitor your investments anytime, anywhere</p>
+            <h3 style={{ color: 'black', margin: '10px', fontSize: '1.1rem', fontWeight: 'bold', }}>Real-time Tracking</h3>
+            <p style={{ color: 'black', margin: '0', fontSize: '0.9rem', fontWeight: 'normal', }}>Monitor your investments anytime, anywhere</p>
           </div>
         </div>
       </section>
@@ -150,8 +153,9 @@ function App() {
         )}
       </section>
       <section className="investment-plans">
-        <h2 style={{ color: 'black', margin: '0', fontSize: '1.8rem', fontWeight: 'bold' }}>Unlock your full financial potential
+        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.3rem', fontWeight: 'bold', fontStyle: 'italic' }}>Our Services
         </h2>
+        <p style={{ color: 'black', margin: '0', fontSize: '0.9rem', fontWeight: 'normal', paddingBottom: '40px' }}>At BlockMining, we offer a range of investment packages tailored to different risk appetites and investment sizes. Whether you're a seasoned crypto enthusiast or a curious newcomer, we have options that suit your needs. Our team of experts constantly monitors market conditions and adjusts our mining strategies to ensure the best possible returns for our investors. </p>
         <div className="plans-grid">
           <div className="plan">
             <h3>Basic Plan</h3>
@@ -180,7 +184,7 @@ function App() {
             <h3>Premium Plan</h3>
             <p className="price">$10,000</p>
             <ul>
-              <li>4-5% daily profits</li>
+              <li >4-5% daily profits</li>
               <li>Maximum mining efficiency</li>
               <li>Instant payouts</li>
               <li>VIP customer support</li>
@@ -203,8 +207,11 @@ function App() {
           </div>
         </div>
       </section>
+
+
+      
       <section className="user-reviews">
-        <h2 style={{ color: 'black', margin: '0', fontSize: '1.5rem', fontWeight: 'bold' }}>What Our Users Say</h2>
+        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.3rem', fontWeight: 'bold', fontStyle: 'italic' ,paddingBottom:'20px'}}>What Our Users Say</h2>
         <div className="reviews-slider" ref={reviewsRef}>
           <div className="review">
             <p>"BlockMining has transformed my investment strategy. The returns are incredible!"</p>
@@ -228,6 +235,60 @@ function App() {
           </div>
         </div>
       </section>
+      <section className="expert-section">
+        <div className="expert-image">
+          <img src="https://images.unsplash.com/photo-1560264280-88b68371db39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Expert consultation" />
+        </div>
+        <div className="expert-form">
+          <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.3rem', fontWeight: 'bold', fontStyle: 'italic', paddingBottom:'20px'}}>Need More Information?</h2>
+          <form>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <select required>
+              <option value="">Select a Topic</option>
+              <option value="investment">Investment Strategies</option>
+              <option value="mining">Mining Operations</option>
+              <option value="technology">Blockchain Technology</option>
+            </select>
+            <textarea placeholder="Your Question" required></textarea>
+            <button type="submit" className="submit-button">Talk to an Expert</button>
+          </form>
+        </div>
+      </section>
+      <style jsx>{`
+        .expert-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 4rem 5%;
+          background-color: #ffffff;
+        }
+        .expert-image {
+          flex: 1;
+          padding-right: 2rem;
+        }
+        .expert-image img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 10px;
+        }
+        .expert-form {
+          flex: 1;
+          padding-left: 2rem;
+        }
+        @media (max-width: 768px) {
+          .expert-section {
+            flex-direction: column;
+          }
+          .expert-image {
+            display: none;
+          }
+          .expert-form {
+            padding-left: 0;
+            width: 100%;
+          }
+        }
+      `}</style>
     </div>
   );
 }

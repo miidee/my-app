@@ -16,15 +16,28 @@
 .App-header {
   background-image: url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   background-repeat: no-repeat;
   min-height: 50vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 0 5%;
   color: white;
+}
+
+.header-content {
+  width: 50%;
+  text-align: left;
+}
+
+.header-content h1 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.header-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 
 .App-link {
@@ -39,12 +52,20 @@
   text-align: center;
   line-height: 1.5;
 }
-
+.cta-button{
+  font-size: 0.8rem;
+}
 /* General styles */
 
+.why-choose-us-description{
+  padding-left: 80px;
+  padding-right:80px;
 
+  line-height: 1.5;
+  
+}
 section {
-  padding: 0px 0;
+  padding: 20px 0;
 }
 
 h2 {
@@ -86,9 +107,9 @@ h2 {
 
 .feature h3,
 .option h3 {
-  font-size: 1.5rem;
+  font-size: 1.rem;
   margin-bottom: 15px;
-  color: #007bff;
+  color: #000000;
 }
 
 /* Metrics styles */
@@ -123,19 +144,18 @@ h2 {
 }
 
 .cta-button {
+  font-size: 0.8rem;
+  padding: 10px 50px;
   background-color: #000000;
   color: white;
   border: none;
-  padding: 15px 50px;
-  font-size: 1.0rem;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
 }
 
 .cta-button:hover {
-  background-color: #007bff;
+  background-color: #0056b3;
 }
 
 /* Responsive adjustments */
@@ -153,11 +173,11 @@ h2 {
   
   .feature h3,
   .option h3 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   
   .metric h3 {
-    font-size: 8rem;
+    font-size: 1.3rem;
   }
 }
 .bitcoin-chart {
@@ -192,9 +212,9 @@ h2 {
 }
 
 .investment-plans {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   padding: 20px 80px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .investment-plans h2 {
@@ -216,10 +236,11 @@ h2 {
 }
 
 .plan {
-  background-color: white;
+  background-color: #f8f9fa;
+
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex: 0 0 270px; /* Fixed width for each card */
   display: flex;
@@ -233,13 +254,13 @@ h2 {
 }
 
 .plan h3 {
-  font-size: 1.5rem;
-  color: #007bff;
+  font-size: 1.1rem;
+  color: black;
   margin-bottom: 15px;
 }
 
 .plan .price {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   color: #28a745;
   margin-bottom: 20px;
@@ -255,6 +276,7 @@ h2 {
   margin-bottom: 10px;
   position: relative;
   padding-left: 25px;
+  font-size: 0.8rem;
 }
 
 .plan li::before {
@@ -274,6 +296,7 @@ h2 {
   border-radius: 2px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 0.8rem;
   margin-top: 20px;
 }
 
@@ -288,20 +311,23 @@ h2 {
 }
 
 .user-reviews {
-  padding: 0 0;
-  background-color: #f8f9fa;
+  padding: 0 60px;
+  background-color: #ffffff;
+  
 }
 
 .user-reviews h2 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .reviews-slider {
   display: flex;
   overflow-x: hidden;
   white-space: nowrap;
-  padding: 20px 0;
+  padding-left: 80px ;
+  padding-right: 0px ;
+  padding-bottom: 20px;
 }
 
 .review {
@@ -309,7 +335,7 @@ h2 {
   width: 300px;
   padding: 20px;
   margin-right: 20px;
-  background-color: white;
+  background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   white-space: normal;
@@ -318,9 +344,76 @@ h2 {
 .review p {
   font-style: italic;
   margin-bottom: 10px;
+  font-size: 0.8rem;
 }
 
 .review h4 {
   text-align: right;
   color: #666;
+  font-size: 0.8rem;
+}
+
+.expert-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 5%;
+  background-color: #ffffff;
+}
+
+.expert-image {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.expert-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.expert-form {
+  flex: 1;
+  padding-left: 2rem;
+}
+
+.expert-form h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+}
+
+.expert-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.expert-form input,
+.expert-form select,
+.expert-form textarea {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  font-size: 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.expert-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.submit-button {
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
 }
