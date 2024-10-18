@@ -43,8 +43,10 @@
     flex-direction: column; /* Stack links vertically */
     width: 100%;
     padding: 0;
+    
     background-color: #333; /* Match the navbar background color */
   }
+
 
   .nav-links.open {
     display: flex; /* Show links when menu is open */
