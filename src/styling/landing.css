@@ -417,3 +417,132 @@ h2 {
 .submit-button:hover {
   background-color: #0056b3;
 }
+
+.bottom-navbar {
+  background-color: #333;
+  color: white;
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.0rem;
+}
+
+.footer-section ul li a:hover {
+  color: white;
+}
+
+.newsletter {
+  flex: 2;
+}
+
+.newsletter p {
+  margin-bottom: 1rem;
+}
+
+.newsletter-form {
+  display: flex;
+}
+
+.newsletter-form input[type="email"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.subscribe-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover {
+  background-color: #0056b3;
+}
+
+.copyright {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+/* You can add specific styles for social media icons if you're using icon fonts or images */
+.facebook, .twitter, .linkedin {
+  /* Add styles for social media icons */
+}
+
+.crypto-ticker {
+  padding: 2rem 5%;
+  background-color: #ffffff;
+  overflow: hidden;
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-top:20px;
+  
+}
+
+.ticker-wrapper {
+  overflow-x: hidden;
+  white-space: nowrap;
+  margin-top: 1rem;
+  
+}
+
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 2rem;
+  color:black;
+}
+
+.ticker-item img {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+.ticker-item span {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}

@@ -28,6 +28,8 @@ ChartJS.register(
 function App() {
   const [bitcoinChartData, setBitcoinChartData] = useState(null);
   const reviewsRef = useRef(null);
+  const [cryptoPrices, setCryptoPrices] = useState([]);
+  const tickerRef = useRef(null);
 
   useEffect(() => {
     const fetchBitcoinChartData = async () => {
@@ -42,6 +44,24 @@ function App() {
     };
 
     fetchBitcoinChartData();
+  }, []);
+
+  useEffect(() => {
+    const fetchCryptoPrices = async () => {
+      try {
+        const response = await axios.get(
+          'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false'
+        );
+        setCryptoPrices(response.data);
+      } catch (error) {
+        console.error('Error fetching crypto prices:', error);
+      }
+    };
+
+    fetchCryptoPrices();
+    const interval = setInterval(fetchCryptoPrices, 60000); // Update every minute
+
+    return () => clearInterval(interval);
   }, []);
 
   const chartData = {
@@ -99,6 +119,35 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const ticker = tickerRef.current;
+    let scrollInterval;
+
+    const startScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (ticker.scrollLeft + ticker.clientWidth >= ticker.scrollWidth) {
+          ticker.scrollLeft = 0;
+        } else {
+          ticker.scrollLeft += 1;
+        }
+      }, 30);
+    };
+
+    const stopScroll = () => {
+      clearInterval(scrollInterval);
+    };
+
+    startScroll();
+    ticker.addEventListener('mouseenter', stopScroll);
+    ticker.addEventListener('mouseleave', startScroll);
+
+    return () => {
+      stopScroll();
+      ticker.removeEventListener('mouseenter', stopScroll);
+      ticker.removeEventListener('mouseleave', startScroll);
+    };
+  }, []);
+
   return (
     <div className="App">
       <Navbar />
@@ -123,7 +172,7 @@ function App() {
         </p>
       </section>
       <section className="key-features">
-        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.3rem', fontWeight: 'bold', fontStyle: 'italic', paddingBottom: '20px' }}>Why Choose Us</h2>
+        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.1rem', fontWeight: 'bold', fontStyle: 'italic', paddingBottom: '20px' }}>Why Choose Us</h2>
         <p className="why-choose-us-description" style={{ color: 'black', margin: '0', fontSize: '0.9rem', fontWeight: 'normal', }}>BLOCKMINING was founded in 2017 and has quickly grown into a leading CrytptoCurrency mining investment platform. Since our establishment, we've been at the forefront of the cryptocurrency revolution, offering investors unique opportunities to participate in the exciting world of cryptocurrency mining. Let's break down the components of our famous tagline to provide a well-detailed explanation of who we are at BlockMining...</p>
         <div className="features-grid">
           <div className="feature">
@@ -144,16 +193,22 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="bitcoin-chart">
-        <h2 style={{ color: 'black', margin: '0', fontSize: '1.5rem', fontWeight: 'bold' }}>Bitcoin Price Chart</h2>
-        {bitcoinChartData ? (
-          <Line data={chartData} options={chartOptions} />
-        ) : (
-          <p>Loading Bitcoin chart data...</p>
-        )}
+     <section className="crypto-ticker">
+        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.1rem', fontWeight: 'bold', fontStyle:'italic', paddingBottom:'20px'}}>Cryptocurrency Prices</h2>
+        <div className="ticker-wrapper" ref={tickerRef}>
+          <div className="ticker-content">
+            {cryptoPrices.map((crypto) => (
+              <div key={crypto.id} className="ticker-item">
+                <img src={crypto.image} alt={crypto.name} />
+                <span>{crypto.symbol.toUpperCase()}</span>
+                <span>${crypto.current_price.toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
       <section className="investment-plans">
-        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.3rem', fontWeight: 'bold', fontStyle: 'italic' }}>Our Services
+        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.1rem', fontWeight: 'bold', fontStyle: 'italic' }}>Our Services
         </h2>
         <p style={{ color: 'black', margin: '0', fontSize: '0.9rem', fontWeight: 'normal', paddingBottom: '40px' }}>At BlockMining, we offer a range of investment packages tailored to different risk appetites and investment sizes. Whether you're a seasoned crypto enthusiast or a curious newcomer, we have options that suit your needs. Our team of experts constantly monitors market conditions and adjusts our mining strategies to ensure the best possible returns for our investors. </p>
         <div className="plans-grid">
@@ -211,7 +266,7 @@ function App() {
 
       
       <section className="user-reviews">
-        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.3rem', fontWeight: 'bold', fontStyle: 'italic' ,paddingBottom:'20px'}}>What Our Users Say</h2>
+        <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.1rem', fontWeight: 'bold', fontStyle: 'italic' ,paddingBottom:'20px'}}>What Our Users Say</h2>
         <div className="reviews-slider" ref={reviewsRef}>
           <div className="review">
             <p>"BlockMining has transformed my investment strategy. The returns are incredible!"</p>
@@ -240,7 +295,7 @@ function App() {
           <img src="https://images.unsplash.com/photo-1560264280-88b68371db39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Expert consultation" />
         </div>
         <div className="expert-form">
-          <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.3rem', fontWeight: 'bold', fontStyle: 'italic', paddingBottom:'20px'}}>Need More Information?</h2>
+          <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.1rem', fontWeight: 'bold', fontStyle: 'italic', paddingBottom:'20px'}}>Need More Information?</h2>
           <form>
             <input type="text" placeholder="Your Name" required />
             <input type="email" placeholder="Your Email" required />
@@ -289,6 +344,51 @@ function App() {
           }
         }
       `}</style>
+      <footer className="bottom-navbar">
+        <div className="footer-section">
+          <h3>About Us</h3>
+          <ul>
+          <li><a href="/careers">Careers</a></li>
+            <li><a href="/about">Our Story</a></li>
+            <li><a href="/team">Our Team</a></li>
+           
+          </ul>
+        </div>
+        <div className="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="/mining">Mining</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/investment">Investment</a></li>
+           
+          </ul>
+        </div>
+        <div className="footer-section newsletter">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Stay updated with our latest news and offers.</p>
+          <form className="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit" className="subscribe-button">Subscribe</button>
+          </form>
+        </div>
+      </footer>
+      <div className="copyright">
+        <p>&copy; 2023 BlockMining. All rights reserved.</p>
+      </div>
+      {/* <section className="crypto-ticker">
+        <h2 style={{ color: 'black', margin: '0', fontSize: '1.5rem', fontWeight: 'bold' }}>Cryptocurrency Prices</h2>
+        <div className="ticker-wrapper" ref={tickerRef}>
+          <div className="ticker-content">
+            {cryptoPrices.map((crypto) => (
+              <div key={crypto.id} className="ticker-item">
+                <img src={crypto.image} alt={crypto.name} />
+                <span>{crypto.symbol.toUpperCase()}</span>
+                <span>${crypto.current_price.toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
     </div>
   );
 }

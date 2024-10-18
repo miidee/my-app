@@ -12,21 +12,21 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h2 style={{ color: 'white', margin: '0', fontSize: '1.5rem', fontWeight: 'bold' }}>BlockMining</h2>
+      <img src={require('../images/Black White Minimalist Initials Monogram Jewelry Logo.png')} alt="BlockMining Logo" className="navbar-logo" style={{ height: '60px', width:'120px', marginLeft: '0px' }} />
       <div className="menu-toggle" onClick={toggleMenu}>
         ☰
       </div>
       <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-        <li style={{ color: 'white', margin: '0', fontSize: '0.9rem', fontWeight: 'normal' }}><a href="#home">Home</a></li>
-        <li style={{ color: 'white', margin: '0', fontSize: '0.9rem', fontWeight: 'normal' }}><a href="#about">About</a></li>
-        <li style={{ color: 'white', margin: '0', fontSize: '0.9rem', fontWeight: 'normal' }}><a href="#services">Services</a></li>
-        <li style={{ color: 'white', margin: '0', fontSize: '0.9rem', fontWeight: 'normal' }}><a href="#about">Reviews</a></li>
-        <li style={{ color: 'white', margin: '0', fontSize: '0.9rem', fontWeight: 'normal' }}><a href="#contact">Contact</a></li>
-        <li style={{ color: 'white', margin: '0', fontSize: '0.9rem', fontWeight: 'normal' }}> <a href="/profile" className="profile-icon">
-          <FaUserCircle size={24} />
-        </a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li> <a href="/profile" className="profile-icon">
+        <FaUserCircle size={24} />
+      </a></li>
       </ul>
-
+     
     </nav>
   );
 };
