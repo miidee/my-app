@@ -207,6 +207,34 @@ function App() {
           </div>
         </div>
       </section>
+
+
+      <section className="how-to-start">
+        <h2>How to Get Started</h2>
+        <div className="starting-description">
+          <p style={{ fontSize: '0.8rem' }}>Getting started with BlockMining is easy. Follow these simple steps to begin your cryptocurrency mining journey.</p>
+        </div>
+        <div className="features-grid">
+          <div className="feature">
+            <h3>1. Choose an Investment Plan</h3>
+            <p>Select the investment plan that best suits your goals and budget.</p>
+          </div>
+          <div className="feature">
+            <h3>2. Sign Up and Select Crypto</h3>
+            <p>Create your account and choose which cryptocurrencies you want to mine.</p>
+          </div>
+          <div className="feature">
+            <h3>3. Make the Investment</h3>
+            <p>Fund your account with your chosen investment amount.</p>
+          </div>
+          <div className="feature">
+            <h3>4. Start Making Profits</h3>
+            <p>Watch your investment grow as we mine cryptocurrencies for you.</p>
+          </div>
+        </div>
+      </section>
+
+
       <section className="investment-plans">
         <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.1rem', fontWeight: 'bold', fontStyle: 'italic' }}>Our Services
         </h2>
@@ -263,8 +291,8 @@ function App() {
         </div>
       </section>
 
+     
 
-      
       <section className="user-reviews">
         <h2 style={{ color: '#007bff', margin: '0', fontSize: '1.1rem', fontWeight: 'bold', fontStyle: 'italic' ,paddingBottom:'20px'}}>What Our Users Say</h2>
         <div className="reviews-slider" ref={reviewsRef}>
@@ -346,13 +374,13 @@ function App() {
       `}</style>
       <footer className="bottom-navbar">
         <div className="footer-section">
-          <h3>About Us</h3>
-          <ul>
-          <li><a href="/careers">Careers</a></li>
-            <li><a href="/about">Our Story</a></li>
-            <li><a href="/team">Our Team</a></li>
-           
-          </ul>
+          <h3>Our Partners</h3>
+          <div className="partner-logos">
+            <img src={require('../images/Bitpay.png')} alt="BitPay" style={{width: '80px', height: '50px', marginRight: '20px'}} />
+            <img src={require('../images/Coinbase-logo.png')} alt="Coinbase" style={{width: '50px', height: '50px', marginRight: '20px'}} />
+            <img src={require('../images/blockchain.com-logo.png')} alt="Blockchain" style={{width: '50px', height: '50px', marginRight: '20px'}} />
+            <img src={require('../images/trust-wallet.png')} alt="Trust Wallet" style={{width: '80px', height: '50px'}} />
+          </div>
         </div>
         <div className="footer-section">
           <h3>Services</h3>

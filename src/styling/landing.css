@@ -546,3 +546,129 @@ h2 {
   font-size: 1rem;
   margin-right: 0.5rem;
 }
+
+.partner-Logos{
+  width:20px;
+  height: 20px;
+}
+
+.how-to-start {
+  padding-left: 60px;
+  padding-right: 60px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.how-to-start h2 {
+  color: #007bff;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 20px;
+}
+
+.how-to-start .why-choose-us-description {
+  padding-left: 80px;
+  padding-right: 80px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.how-to-start .why-choose-us-description p {
+  font-size: 0.9rem;
+  color: black;
+}
+
+.how-to-start .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-top: 40px;
+}
+
+.how-to-start .feature {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.how-to-start .feature:hover {
+  transform: translateY(-5px);
+}
+
+.how-to-start .feature h3 {
+  color: black;
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.how-to-start .feature p {
+  color: black;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-top: 40px;
+}
+
+.step {
+  flex-basis: calc(25% - 20px);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+
+
+.step-number {
+  background-color: #007bff;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px;
+}
+
+.step h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+
+.step p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .step {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+
+
