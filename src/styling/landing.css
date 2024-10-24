@@ -502,9 +502,7 @@ h2 {
 }
 
 /* You can add specific styles for social media icons if you're using icon fonts or images */
-.facebook, .twitter, .linkedin {
-  /* Add styles for social media icons */
-}
+
 
 .crypto-ticker {
   padding: 2rem 5%;
@@ -670,5 +668,80 @@ h2 {
   }
 }
 
+/* Hero Section */
 
 
+/* Security and Compliance Section */
+.security-compliance {
+  padding: 60px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.security-compliance h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.security-features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.security-features .feature {
+  flex-basis: calc(33.333% - 20px);
+  margin-bottom: 30px;
+}
+
+.security-features .feature img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.security-features .feature h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.security-features .feature p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Call-to-Action Section */
+.cta-section {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 60px;
+}
+
+.cta-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  font-size: 0.9rem;
+  padding: 12px 24px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #f8f9fa;
+  color: black;
+}

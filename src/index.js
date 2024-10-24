@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './screens/landing.js';
+import Landing from './screens/landing.js';
+import About from './screens/about.js';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/landing" element={<Landing />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 

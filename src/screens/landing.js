@@ -336,7 +336,14 @@ function App() {
             <textarea placeholder="Your Question" required></textarea>
             <button type="submit" className="submit-button">Talk to an Expert</button>
           </form>
+          
         </div>
+
+      </section>
+      <section className="cta-section">
+        <h2>Ready to Start Your Investment Journey?</h2>
+        <p>Join BlockMining today and take control of your financial future</p>
+        <button className="cta-button">Create Your Account</button>
       </section>
       <style jsx>{`
         .expert-section {
@@ -372,6 +379,7 @@ function App() {
           }
         }
       `}</style>
+      
       <footer className="bottom-navbar">
         <div className="footer-section">
           <h3>Our Partners</h3>
@@ -416,6 +424,21 @@ function App() {
             ))}
           </div>
         </div>
+      </section> */}
+      {/* <section className="hero-section">
+        <div className="hero-content">
+          <h1>Invest in the Future of Cryptocurrency</h1>
+          <p>Join thousands of investors leveraging blockchain technology for financial growth</p>
+          <button className="cta-button">Start Investing Now</button>
+        </div>
+        <div className="hero-image">
+          <img src="/path/to/hero-image.jpg" alt="Cryptocurrency investment" />
+        </div>
+      </section>
+      <section className="cta-section">
+        <h2>Ready to Start Your Investment Journey?</h2>
+        <p>Join BlockMining today and take control of your financial future</p>
+        <button className="cta-button">Create Your Account</button>
       </section> */}
     </div>
   );
