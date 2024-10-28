@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { Line } from 'react-chartjs-2';
+// import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     const fetchBitcoinChartData = async () => {
-      try {
+      try { 
         const response = await axios.get(
           'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=30&interval=daily'
         );

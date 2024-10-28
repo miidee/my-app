@@ -21,7 +21,6 @@ const Navbar = () => {
       <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
         <li><Link to="/landing">Home</Link></li>
         <li><Link to="/about">About</Link></li>
-        
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
         <li> <a href="/profile" className="profile-icon">

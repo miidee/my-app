@@ -23,9 +23,12 @@
 .about-content h2 {
   color: #007bff;
   margin-top: 30px;
+  font-size: 1.1rem;
+  font-style: italic;
 }
 
 .about-content p {
   line-height: 1.6;
+  font-size: 0.9rem;
 }
 
